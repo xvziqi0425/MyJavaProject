@@ -1,4 +1,4 @@
-package com.huawei.it.sort;
+package com.huawei.it.v1_sort;
 
 import java.util.Arrays;
 
@@ -10,6 +10,9 @@ public class QuickSort {
     }
 
     public static void quickSort(int[] a, int left, int right) {
+        if (left >= right) {
+            return;
+        }
         int i = left;
         int j = right;
         while (i < j) {
