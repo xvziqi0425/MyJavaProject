@@ -1,26 +1,23 @@
 package com.huawei.it.v1_sort;
 
-import java.util.Arrays;
+import static com.huawei.it.v1_sort.Test.QuickSortTest;
 
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 5}; // Java声明数组
-        quickSort(arr, 0, 2);
-        System.out.println(Arrays.toString(arr));
+    public static void main(String[] args) throws Exception {
+        QuickSortTest();
     }
 
+
     public static void quickSort(int[] a, int left, int right) {
-        if (left >= right) {
+        if (left >= right) { // 递归终止
             return;
         }
+        int pivot = a[left]; // 选择基准元素（这里选择最左边的元素）
         int i = left;
         int j = right;
         while (i < j) {
-            for (; i < j && a[j] >= a[left]; j--) ;
-            for (; i < j && a[i] <= a[right]; i++) ;
-            if (i >= j) {
-                continue;
-            }
+            for (; i < j && a[j] >= pivot; j--) ;
+            for (; i < j && a[i] <= pivot; i++) ;
             swap(a, i, j);
         }
         swap(a, left, i); // 漏了, 交换锚点元素和碰撞元素
